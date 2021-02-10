@@ -1,0 +1,56 @@
+@layout('layouts.app')
+
+@section('title')
+Tickets
+@endsection
+
+@section('content')
+<div class="container-page m-auto">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Tickets</h5>
+                    <br>
+                    <table class="table ticket-table" width="100%">
+                        <thead>
+                        <tr>
+                            <th>Ticket Details</th>
+                            <th>Customer Name</th>
+                            <th>Date</th>
+                            <th>Priority</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            @each(ticket in tickets)
+                            <tr>
+                                <td> {{ ticket.ticket_detail }} </td>
+                                <td> {{ ticket.customer_name }} </td>
+                                <td> {{ ticket.created_at }} </td>
+                                <td> <span class="badge {{ ticket.status == 0 ? 'badge-info' : 'badge-secondary' }}">{{ ticket.status == 0 ? 'Pending' : 'Cenceled' }}</span> </td>
+                                <td>
+                                    @if(ticket.status != 1)
+                                    <button class="btn btn-secondary dropdown-toggle btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <form id="form-update" action="{{ route('tickets.update', { id: ticket.id }) }}" method="POST">
+                                            {{ csrfField() }}
+                                            <a id="update" class="dropdown-item" href="#">Closed</a>
+                                        </form>
+                                    </div>
+                                    @endif
+                                </td>
+                            </tr>
+                            @endeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+@section('page-scripts')
+    @include('tickets.scripts')
+@endsection

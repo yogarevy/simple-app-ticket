@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @include('layouts.meta')
+    <title>Ticket App</title>
+    @include('layouts.styles')
+    @!section('page-styles')
+</head>
+<body>
+    <div class="wrapper">
+        @include('layouts.sidebar')
+        <div id="content">
+            @include('layouts.header')
+            @include('layouts.content')
+        </div>
+        @include('layouts.footer')
+    </div>
+    @include('layouts.scripts')
+    @!section('page-scripts')
+</body>
+</html>

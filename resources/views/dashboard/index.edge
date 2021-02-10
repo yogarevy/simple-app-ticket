@@ -1,0 +1,274 @@
+@layout('layouts.app')
+
+@section('page-styles')
+<style>
+    .card {
+        border-radius: 8px;
+    }
+
+    .counter-card {
+        cursor: pointer;
+    }
+
+    .counter-card:hover .card-title {
+        color: #3751FF !important;
+    }
+
+    .counter-card:hover .card-text {
+        color: #3751FF !important;
+    }
+
+    .counter-card:hover {
+        border: 1px solid #3751FF;
+    }
+
+    .card-count {
+        font-size: 40px;
+        font-style: normal;
+        font-weight: bold;
+        line-height: 50px;
+        color: #252733;
+    }
+
+    .baris-card {
+        margin-bottom: 30px;
+    }
+
+    .chart-card .card-title {
+        font-size: 19px;
+    }
+    .chart-card .card-subtitle {
+        font-size: 12px;
+    }
+
+    .data-card {
+        border-radius: 0px;
+    }
+
+    .data-card .card-title {
+        font-size: 16px;
+    }
+
+    .data-card .card-text {
+        font-size: 24px;
+    }
+
+    .view-detail {
+        font-size: 14px;
+        color: #3751FF;
+    }
+</style>
+@endsection
+
+@section('title')
+Overview
+@endsection
+
+@section('content')
+<div class="container-page m-auto">
+    <div class="row baris-card">
+        <div class="col-md-3">
+            <div class="card text-center counter-card">
+                <div class="card-body">
+                  <h5 class="card-title text-muted">Unresolved</h5>
+                  <p class="card-text card-count">60</p>
+                </div>
+              </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center counter-card">
+                <div class="card-body">
+                  <h5 class="card-title text-muted">Overdue</h5>
+                  <p class="card-text card-count">16</p>
+                </div>
+              </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center counter-card">
+                <div class="card-body">
+                  <h5 class="card-title text-muted">Open</h5>
+                  <p class="card-text card-count">43</p>
+                </div>
+              </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center counter-card">
+                <div class="card-body">
+                  <h5 class="card-title text-muted">On hold</h5>
+                  <p class="card-text card-count">64</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row baris-card">
+        <div class="col-md-12">
+            <div class="card chart-card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h5 class="card-title">Today's trends</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">as of 25 May 2019, 09:41 PM</h6>
+                            <canvas id="myChart" width="400" height="300"></canvas>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card text-center data-card">
+                                <div class="card-body">
+                                  <h5 class="card-title text-muted">Resolved</h5>
+                                  <p class="card-text card-count">449</p>
+                                </div>
+                            </div>
+                            <div class="card text-center data-card">
+                                <div class="card-body">
+                                  <h5 class="card-title text-muted">Received</h5>
+                                  <p class="card-text card-count">426</p>
+                                </div>
+                            </div>
+                            <div class="card text-center data-card">
+                                <div class="card-body">
+                                  <h5 class="card-title text-muted">Average first response time</h5>
+                                  <p class="card-text card-count">33m</p>
+                                </div>
+                            </div>
+                            <div class="card text-center data-card">
+                                <div class="card-body">
+                                  <h5 class="card-title text-muted">Average response time</h5>
+                                  <p class="card-text card-count">3h 8m</p>
+                                </div>
+                            </div>
+                            <div class="card text-center data-card">
+                                <div class="card-body">
+                                  <h5 class="card-title text-muted">Resolution within SLA</h5>
+                                  <p class="card-text card-count">94%</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row baris-card">
+        <div class="col-md-6">
+            <div class="card chart-card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h5 class="card-title">Unresolved tickets</h5>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="#" class="view-detail float-right">View details</a>
+                        </div>
+                    </div>
+                    <h6 class="card-subtitle mb-5 text-muted">Group <strong>Support</strong></h6>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <p style="font-size: 14px; color: #252733;">Waiting on Feature Request</p>
+                        </div>
+                        <div class="col-md-4">
+                            <p class="float-right" style="font-size: 14px;">4230</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <p style="font-size: 14px; color: #252733;">Awaiting Customer Response</p>
+                        </div>
+                        <div class="col-md-4">
+                            <p class="float-right" style="font-size: 14px;">1005</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <p style="font-size: 14px; color: #252733;">Awaiting Developer Fix</p>
+                        </div>
+                        <div class="col-md-4">
+                            <p class="float-right" style="font-size: 14px;">914</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <p style="font-size: 14px; color: #252733;">Pending</p>
+                        </div>
+                        <div class="col-md-4">
+                            <p class="float-right" style="font-size: 14px;">281</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card chart-card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h5 class="card-title">Task</h5>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="#" class="view-detail float-right">View all</a>
+                        </div>
+                    </div>
+                    <h6 class="card-subtitle mb-5 text-muted">Today</h6>
+                    <div class="row">
+                        <div class="col-md-11">
+                            <input class="form-control" placeholder="Create new task">
+                        </div>
+                        <div class="col-md-1">
+                            <button class="btn btn-secondary btn-sm float-right rounded"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <div class="round">
+                                <input type="checkbox" id="checkbox1" />
+                                <label for="checkbox1"></label>
+                              </div>
+                        </div>
+                        <div class="col-md-8">
+                            <p style="font-size: 14px; color: #252733;">Finish ticket update</p>
+                        </div>
+                        <div class="col-md-3">
+                            <span class="badge badge-warning float-right" style="color: #ffffff;">URGENT</span>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <div class="round">
+                                <input type="checkbox" id="checkbox2" />
+                                <label for="checkbox2"></label>
+                              </div>
+                        </div>
+                        <div class="col-md-8">
+                            <p style="font-size: 14px; color: #252733;">Create new ticket example</p>
+                        </div>
+                        <div class="col-md-3">
+                            <span class="badge badge-success float-right" style="color: #ffffff;">NEW</span>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <div class="round">
+                                <input type="checkbox" id="checkbox3" checked />
+                                <label for="checkbox3"></label>
+                              </div>
+                        </div>
+                        <div class="col-md-8">
+                            <p style="font-size: 14px; color: #252733;">Update ticket report</p>
+                        </div>
+                        <div class="col-md-3">
+                            <span class="badge badge-secondary float-right" style="color: #ffffff;">DEFAULT</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+@section('page-scripts')
+    @include('dashboard.scripts')
+@endsection

@@ -1,0 +1,50 @@
+<!-- Sidebar -->
+<nav id="sidebar">
+    <div class="sidebar-header">
+        <h6><img src="{{ assetsUrl('assets/images/svg/logo.svg') }}" class="logo-img" /> Dashboard Kit</h6>
+    </div>
+
+    <ul class="list-unstyled components">
+        <li class="{{request.match('/dashboard') ? 'active' : '' }}">
+            <a href="{{ route('dashboard.index') }}"><i class="fas fa-chart-pie ikon"></i>Overview</a>
+        </li>
+        <li class="{{request.match('/tickets') ? 'active' : '' }}">
+            <a href="{{ route('tickets.index') }}"><i class="fas fa-ticket-alt ikon"></i>Tickets</a>
+        </li>
+        <li>
+            <a href="#"><i class="fas fa-lightbulb ikoni"></i>Ideas</a>
+        </li>
+        <li>
+            <a href="#"><i class="fas fa-users ikon"></i>Contacts</a>
+        </li>
+        <li>
+            <a href="#"><i class="fas fa-user-tie ikona"></i>Agents</a>
+        </li>
+        <li>
+            <a href="#"><i class="fas fa-newspaper ikon"></i>Articles</a>
+        </li>
+        <li>
+            <hr class="garis">
+        </li>
+        <li>
+            <a href="#"><i class="fas fa-cog ikon"></i>Settings</a>
+        </li>
+        <li>
+            <a href="#"><i class="fas fa-award ikon"></i>Subscription</a>
+        </li>
+        <li>
+            <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle pages">Pages</a>
+            <ul class="collapse list-unstyled" id="pageSubmenu">
+                <li>
+                    <a href="#">Page 1</a>
+                </li>
+                <li>
+                    <a href="#">Page 2</a>
+                </li>
+                <li>
+                    <a href="#">Page 3</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</nav>

@@ -1,0 +1,212 @@
+/*
+    ADDITIONAL DEMO STYLE, NOT IMPORTANT TO MAKE THINGS WORK BUT TO MAKE IT A BIT NICER :)
+*/
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #fafafa;
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #999;
+}
+
+a, a:hover, a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.wrapper {
+    display: flex;
+    width: 100%;
+}
+
+#sidebar {
+    width: 255px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 999;
+    background: #363740;
+    color: #A4A6B3;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+#sidebar.active {
+    margin-left: -255px;
+}
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.pages::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+#sidebar .sidebar-header {
+    padding: 35px;
+    background: #363740;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #363740;
+}
+/* 
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
+} */
+
+#sidebar ul li a {
+    padding: 15px 15px 15px 40px;
+    font-size: 16px;
+    display: block;
+}
+#sidebar ul li a:hover {
+    color: #ffffff !important;
+    background: rgba(159, 162, 180, 0.08);
+}
+
+#sidebar ul li.active > a, a[aria-expanded="true"] {
+    color: #ffffff;
+    background: rgba(159, 162, 180, 0.08);
+}
+ul ul a {
+    font-size: 16px !important;
+    padding-left: 60px !important;
+    background: #363740;
+}
+
+.ikon {
+    margin-right: 24px;
+}
+
+.ikoni {
+    margin-right: 32px;
+}
+
+.ikona {
+    margin-right: 29px;
+}
+
+.logo-img {
+    margin-right: 12px;
+}
+
+.garis {
+    border-color: #DFE0EB;
+}
+
+#content {
+    width: calc(100% - 255px);
+    padding: 20px;
+    min-height: 100vh;
+    transition: all 0.3s;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#content.active {
+    width: 100%;
+}
+
+.vl {
+    border-left: 1px solid #DFE0EB;
+    height: 32px;
+}
+
+.ikon-color {
+    color: #C5C7CD;
+}
+
+.nav-item {
+    padding-right: 20px;
+}
+
+.user-nav::after {
+    display: none;
+}
+
+.rounded {
+    margin-left: 20px;
+    border-radius: 50% !important;
+}
+
+#navbarSupportedContent {
+    padding-top: 10px;
+}
+
+.container-page {
+    padding: 15px 29px 15px 29px;
+}
+
+.round {
+    position: relative;
+}
+  
+.round label {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 28px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 28px;
+}
+  
+  .round label:after {
+    border: 2px solid #fff;
+    border-top: none;
+    border-right: none;
+    content: "";
+    height: 6px;
+    left: 7px;
+    opacity: 0;
+    position: absolute;
+    top: 8px;
+    transform: rotate(-45deg);
+    width: 12px;
+  }
+  
+  .round input[type="checkbox"] {
+    visibility: hidden;
+  }
+  
+  .round input[type="checkbox"]:checked + label {
+    background-color: #3751FF;
+    border-color: #3751FF;
+  }
+  
+  .round input[type="checkbox"]:checked + label:after {
+    opacity: 1;
+  }
+
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -255px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+}
